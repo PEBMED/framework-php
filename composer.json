@@ -1,8 +1,24 @@
 {
-    "name": "robson/framework-php",
+    "name": "pebmed/framework-php",
     "authors": [
         {
+            "name": "Fabio de Souza",
+            "email": "fabio.souza@pebmed.com.br"
+        },
+        {
+            "name": "Letícia Moreira",
+            "email": "leticia.moreira@pebmed.com.br"
+        },
+        {
+            "name": "Luan Fagundes",
+            "email": "luan.fagundes@pebmed.com.br"
+        },
+        {
             "name": "Robson Lourenço",
+            "email": "thiago.censi@pebmed.com.br"
+        },
+        {
+            "name": "Thiago Censi",
             "email": "robson.lourenco@pebmed.com.br"
         }
     ],
