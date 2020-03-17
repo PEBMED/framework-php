@@ -1,0 +1,11 @@
+{
+    "name": "robson/framework-php",
+    "authors": [
+        {
+            "name": "Robson Lourenço",
+            "email": "robson.lourenco@pebmed.com.br"
+        }
+    ],
+    "description": "",
+    "require": {}
+}
