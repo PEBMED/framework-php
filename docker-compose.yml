@@ -1,0 +1,57 @@
+version: '3.6'
+services:
+
+    nginx:
+        image: nginx
+        container_name: nginx
+        ports:
+            - '80:80'
+        volumes:
+            - ./nginx:/etc/nginx/conf.d
+            - ./logs:/var/log/nginx
+            - ./html:/var/www/html
+        depends_on:
+            - php
+            - mariadb
+        restart: always
+
+
+    # mariadb: mysql compatible dabatase
+    mariadb:
+        image: mariadb
+        container_name: mariadb
+        volumes:
+            - ./db:/var/lib/mysql
+        ports:
+            - "3306:3306"
+        environment:
+            - MYSQL_ROOT_PASSWORD=123
+            - MYSQL_DATABASE=phpfw
+            - MYSQL_USER=phpfw
+            - MYSQL_PASSWORD=123
+        volumes:
+            - ./db:/var/lib/mysql
+
+
+    #php fpm
+    php:
+        image: php:7.4-fpm
+        container_name: php
+        volumes:
+            - ./php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini # custom php.ini configs
+        links:
+            - mariadb
+        volumes:
+            - ./html:/var/www/html
+
+
+    # adminer: simple db manager, like phpmyadmin
+    adminer:
+        image: adminer
+        restart: always
+        links:
+            - mariadb
+        ports:
+            - 8080:8080
+
+
