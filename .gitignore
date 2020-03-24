@@ -1,1 +1,5 @@
 /vendor/
+db/
+.DS_Store
+/logs/
+
